@@ -1,0 +1,29 @@
+$ jest --runInBand test/shipments.e2e-spec.ts -t "rejects an invalid nested delivery date"
+FAIL test/shipments.e2e-spec.ts
+  POST /shipments
+    ✕ rejects an invalid nested delivery date and leaves the shipment store unchanged (156 ms)
+    ○ skipped creates a shipment when the nested delivery date is valid
+
+  ● POST /shipments › rejects an invalid nested delivery date and leaves the shipment store unchanged
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 400
+    Received: 201
+
+      31 |         recipient: "tonbi",
+      32 |         delivery: { arrivalAt: "tomorrow-morning" }
+    > 33 |       });
+         |          ^
+      34 |
+      35 |     expect(response.status).toBe(400);
+      36 |
+
+      at Object.<anonymous> (test/shipments.e2e-spec.ts:33:33)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 skipped, 2 total
+Snapshots:   0 total
+Time:        2.535 s, estimated 3 s
+Ran all test suites matching /test\/shipments.e2e-spec.ts/i with tests matching "rejects an invalid nested delivery date".
+[ELIFECYCLE] Command failed with exit code 1.
