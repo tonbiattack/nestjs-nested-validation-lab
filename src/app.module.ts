@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Module, Post } from "@nestjs/common";
+import { Type } from "class-transformer";
 import { IsISO8601, IsString, ValidateNested } from "class-validator";
 
 export class DeliveryWindowDto {
@@ -10,8 +11,9 @@ export class CreateShipmentDto {
   @IsString()
   recipient!: string;
 
-  // BUG: @ValidateNested() だけでは、HTTPから来るplain objectの変換先クラスを指定できない。
+  // HTTPから来るplain objectを、ネストされた検証用DTOへ変換する。
   @ValidateNested()
+  @Type(() => DeliveryWindowDto)
   delivery!: DeliveryWindowDto;
 }
 

@@ -1,0 +1,11 @@
+$ jest --runInBand
+PASS test/shipments.e2e-spec.ts
+  POST /shipments
+    ✓ rejects an invalid nested delivery date and leaves the shipment store unchanged (147 ms)
+    ✓ creates a shipment when the nested delivery date is valid (12 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        2.542 s, estimated 3 s
+Ran all test suites.
